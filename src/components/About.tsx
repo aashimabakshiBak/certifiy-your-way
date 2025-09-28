@@ -1,63 +1,63 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Users, Globe, Trophy, Clock } from "lucide-react"
-
-const stats = [
-  {
-    icon: Users,
-    number: "500+",
-    label: "Certified Companies",
-    description: "Businesses worldwide trust our certification services"
-  },
-  {
-    icon: Globe,
-    number: "25+",
-    label: "Countries Served",
-    description: "Global reach with local expertise"
-  },
-  {
-    icon: Trophy,
-    number: "15+",
-    label: "Years Experience",
-    description: "Proven track record in certification excellence"
-  },
-  {
-    icon: Clock,
-    number: "98%",
-    label: "On-Time Delivery",
-    description: "Reliable and efficient certification processes"
-  }
-]
-
-const certifications = [
-  "ISO 9001:2015 Certified",
-  "IAF MLA Recognized", 
-  "UKAS Accredited",
-  "ANAB Accredited",
-  "Global Standards Compliant"
-]
+import { useTranslation } from 'react-i18next'
 
 export function About() {
+  const { t } = useTranslation()
+
+  const stats = [
+    {
+      icon: Users,
+      number: "500+",
+      label: t('certifiedCompanies'),
+      description: t('certifiedCompaniesDesc')
+    },
+    {
+      icon: Globe,
+      number: "25+",
+      label: t('countriesServed'),
+      description: t('countriesServedDesc')
+    },
+    {
+      icon: Trophy,
+      number: "15+",
+      label: t('yearsExp'),
+      description: t('yearsExpDesc')
+    },
+    {
+      icon: Clock,
+      number: "98%",
+      label: t('onTimeDelivery'),
+      description: t('onTimeDeliveryDesc')
+    }
+  ]
+
+  const certifications = [
+    "ISO 9001:2015 Certified",
+    "IAF MLA Recognized", 
+    "UKAS Accredited",
+    "ANAB Accredited",
+    "Global Standards Compliant"
+  ]
+
   return (
     <section id="about" className="py-20 bg-secondary/30">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-professional mb-6">
-              Leading Certification Authority Since 2008
+              {t('aboutTitle')}
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              CertifyPro Standards has been at the forefront of quality certification, 
-              helping businesses achieve excellence through rigorous standards and expert guidance. 
-              Our commitment to integrity and precision has made us a trusted partner for organizations worldwide.
+              {t('aboutDescription1')}
             </p>
             <p className="text-lg text-muted-foreground mb-8">
-              We specialize in ISO certifications, product compliance, and management system implementations, 
-              ensuring your business not only meets regulatory requirements but exceeds industry expectations.
+              {t('aboutDescription2')}
             </p>
             
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-professional">Our Accreditations</h3>
+              <h3 className="text-xl font-semibold text-professional">{t('ourAccreditations')}</h3>
               <div className="flex flex-wrap gap-2">
                 {certifications.map((cert, index) => (
                   <Badge key={index} variant="secondary" className="text-sm">
@@ -87,12 +87,9 @@ export function About() {
         <div className="mt-16 text-center">
           <Card className="max-w-4xl mx-auto shadow-card bg-gradient-hero text-white">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-bold mb-4">{t('ourMission')}</h3>
               <p className="text-lg leading-relaxed">
-                To empower businesses worldwide by providing reliable, efficient, and comprehensive 
-                certification services that enhance quality, ensure compliance, and drive sustainable growth. 
-                We are committed to maintaining the highest standards of integrity while delivering 
-                exceptional value to our clients.
+                {t('missionText')}
               </p>
             </CardContent>
           </Card>

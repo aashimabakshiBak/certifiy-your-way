@@ -2,63 +2,65 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Shield, Award, CheckCircle, FileCheck, Users, Zap } from "lucide-react"
-
-const services = [
-  {
-    icon: Shield,
-    title: "ISO Certifications",
-    description: "Complete ISO certification services including 9001, 14001, 45001, and 27001 standards.",
-    features: ["Quality Management", "Environmental Standards", "Health & Safety", "Information Security"],
-    popular: true
-  },
-  {
-    icon: Award,
-    title: "Product Certification",
-    description: "Comprehensive product testing and certification for various industries and markets.",
-    features: ["CE Marking", "FCC Compliance", "Safety Testing", "Performance Validation"],
-    popular: false
-  },
-  {
-    icon: FileCheck,
-    title: "Compliance Auditing",
-    description: "Thorough compliance audits to ensure your business meets all regulatory requirements.",
-    features: ["Regulatory Compliance", "Process Auditing", "Risk Assessment", "Documentation Review"],
-    popular: false
-  },
-  {
-    icon: Users,
-    title: "Training & Development",
-    description: "Professional training programs to build internal certification capabilities.",
-    features: ["Staff Training", "Certification Workshops", "Best Practices", "Ongoing Support"],
-    popular: false
-  },
-  {
-    icon: CheckCircle,
-    title: "Management Systems",
-    description: "Implementation and maintenance of comprehensive management systems.",
-    features: ["System Design", "Implementation", "Maintenance", "Continuous Improvement"],
-    popular: false
-  },
-  {
-    icon: Zap,
-    title: "Fast-Track Services",
-    description: "Expedited certification processes for urgent business requirements.",
-    features: ["Priority Processing", "Dedicated Support", "Rapid Turnaround", "Emergency Audits"],
-    popular: false
-  }
-]
+import { useTranslation } from 'react-i18next'
 
 export function Services() {
+  const { t } = useTranslation()
+
+  const services = [
+    {
+      icon: Shield,
+      title: t('isoCertifications'),
+      description: t('isoCertificationsDesc'),
+      features: [t('qualityMgmt'), t('environmentalStandards'), t('healthSafetyStandards'), t('infoSecurity')],
+      popular: true
+    },
+    {
+      icon: Award,
+      title: t('productCertification'),
+      description: t('productCertificationDesc'),
+      features: [t('ceMarking'), t('fccCompliance'), t('safetyTesting'), t('performanceValidation')],
+      popular: false
+    },
+    {
+      icon: FileCheck,
+      title: t('complianceAuditing'),
+      description: t('complianceAuditingDesc'),
+      features: [t('regulatoryCompliance'), t('processAuditing'), t('riskAssessment'), t('documentationReview')],
+      popular: false
+    },
+    {
+      icon: Users,
+      title: t('trainingDevelopment'),
+      description: t('trainingDevelopmentDesc'),
+      features: [t('staffTraining'), t('certificationWorkshops'), t('bestPractices'), t('ongoingSupport')],
+      popular: false
+    },
+    {
+      icon: CheckCircle,
+      title: t('managementSystems'),
+      description: t('managementSystemsDesc'),
+      features: [t('systemDesign'), t('implementation'), t('maintenance'), t('continuousImprovement')],
+      popular: false
+    },
+    {
+      icon: Zap,
+      title: t('fastTrackServices'),
+      description: t('fastTrackServicesDesc'),
+      features: [t('priorityProcessing'), t('dedicatedSupport'), t('rapidTurnaround'), t('emergencyAudits')],
+      popular: false
+    }
+  ]
+
   return (
     <section id="services" className="py-20">
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-professional mb-4">
-            Our Certification Services
+            {t('servicesTitle')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive certification solutions tailored to your industry needs. 
-            From ISO standards to product certifications, we ensure your business meets the highest quality standards.
+            {t('servicesDescription')}
           </p>
         </div>
 
@@ -67,7 +69,7 @@ export function Services() {
             <Card key={index} className="relative shadow-card hover:shadow-hero transition-all duration-300 group">
               {service.popular && (
                 <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground">
-                  Most Popular
+                  {t('mostPopular')}
                 </Badge>
               )}
               
@@ -93,7 +95,7 @@ export function Services() {
                 </div>
                 
                 <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  Learn More
+                  {t('learnMore')}
                 </Button>
               </CardContent>
             </Card>
@@ -102,10 +104,10 @@ export function Services() {
 
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-6">
-            Don't see what you're looking for? We offer custom certification solutions.
+            {t('customSolutions')}
           </p>
           <Button size="lg" className="px-8">
-            Contact Our Experts
+            {t('contactExperts')}
           </Button>
         </div>
       </div>
